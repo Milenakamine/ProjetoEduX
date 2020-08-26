@@ -33,6 +33,7 @@ CREATE TABLE Categoria(
 
 CREATE TABLE Turma(
 	IdTurma INT IDENTITY PRIMARY KEY NOT NULL,
+	Descricao VARCHAR (50),
 
 --FK
 	IdCurso INT FOREIGN KEY REFERENCES Curso(IdCurso),
@@ -73,6 +74,8 @@ CREATE TABLE AlunoTurma(
 
 CREATE TABLE Objetivo(
 	IdObjetivo INT IDENTITY PRIMARY KEY NOT NULL,
+	DataObje Date,
+	Descricao VARCHAR(50),
 
 --FK
 	IdCategoria INT FOREIGN KEY REFERENCES Categoria (IdCategoria)
@@ -81,6 +84,9 @@ CREATE TABLE Objetivo(
 
 CREATE TABLE ObjetivoAluno(
 	IdObjetivoAluno INT IDENTITY PRIMARY KEY NOT NULL,
+	Nota VARCHAR(3),
+	DataEntrega Date,
+
 
 --FK
 	IdAlunoTurma INT FOREIGN KEY REFERENCES AlunoTurma (IdAlunoTurma),
@@ -90,6 +96,7 @@ CREATE TABLE ObjetivoAluno(
 
 CREATE TABLE Dica(
 	IdDica INT IDENTITY PRIMARY KEY NOT NULL,
+	Descricao VARCHAR (255),
 
 --FK
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario)
